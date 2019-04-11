@@ -20,6 +20,7 @@
       <div class="box">
         <h3>Check in only on saturday and minimum stay of 10 nights</h3>
         <DatePicker
+          :hoveringTooltip="showTooltip"
           :disabledDaysOfWeek="['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sunday']"
           :enableCheckout="true"
           :minNights="10"
@@ -200,6 +201,11 @@
         <p>内容</p>
         </div>
         `
+      },
+      showTooltip(number) {
+        console.log(number)
+        // 并没有什么用
+        return true
       }
     }
   };

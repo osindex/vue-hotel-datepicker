@@ -1,5 +1,5 @@
 {
-  "name": "vue-hotel-datepicker",
+  "name": "@osindex/vue-hotel-datepicker",
   "version": "1.0.0",
   "description": "基于 krystalcampioni@vue-hotel-datepicker 日历选择器，可增加自定义日期事件或价格标记",
   "author": "osindex <yaoiluo@gmail.com>",

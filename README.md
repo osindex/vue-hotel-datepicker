@@ -138,10 +138,27 @@ Shows a tooltip with the number of nights when hovering a date.
 
 ### tooltipMessage
 
-- Type: `String`
+- Type: `String` or `Function`
 - Default `null`
 
 If provided, it will override the default tooltip "X nights" with the text provided. You can use HTML in the string.
+```
+或:tooltipMessage="showEvent"
+
+methods: {
+	...
+	showEvent(row) {
+        return `<div>
+        <h2>${fecha.format(row,"YYYY-MM-DD")}</h2>
+        <p>内容: 99.9912</p>
+        <p>内容</p>
+        <p>内容</p>
+        </div>
+        `
+      }
+}
+其中 typeof row === 'date'
+```
 
 ## singleDaySelection
 
@@ -208,3 +225,7 @@ Emitted every time a new check out date is selected with the new date as payload
 
 ## Credits
 This component was originally built as a Vue wrapper component for the [Hotel Datepicker](https://github.com/benitolopez/hotel-datepicker) by @benitolopez. Version 2.0.0 was completely rewritten with Vue, removing the original library, removing some features and introducing others.
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
