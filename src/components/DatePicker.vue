@@ -220,10 +220,7 @@
         default: true,
         type: [Boolean, Function]
       },
-      tooltipMessage: {
-        default: null,
-        type: String
-      },
+      tooltipMessage: [String, Function],
       i18n: {
         default: () => defaulti18n,
         type: Object
@@ -1041,13 +1038,15 @@
             border-radius: 2px;
             color: $white;
             font-size: 11px;
-            margin-left: 5px;
+            // margin-left: 5px;
+            margin-left: 50px;
             margin-top: -22px;
             padding: 5px 10px;
             position: absolute;
             z-index: 50;
 
-            &:after {
+            // 下三角
+            /* &:after {
                 border-left: 4px solid transparent;
                 border-right: 4px solid transparent;
                 border-top: 4px solid $dark-gray;
@@ -1056,6 +1055,18 @@
                 left: 50%;
                 margin-left: -4px;
                 position: absolute;
+            }
+            */
+            // 左三角
+            &:after {
+              border-width: 4px 4px 4px 0;
+              border-style: solid;
+              border-color: transparent #2d3047;
+              left: -4px;
+              content: "";
+              top: 20%;
+              margin-top: -4px;
+              position: absolute;
             }
         }
     }

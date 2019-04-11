@@ -5,7 +5,10 @@
       <div class="box">
         <h3>Allow check-in and check-out on the same day</h3>
         <DatePicker
+          id="firstDemo"
+          ref="fDemo"
           :minNights="0"
+          :tooltipMessage="showEvent"
         />
       </div>
       <div class="box">
@@ -169,6 +172,7 @@
 
 <script>
   import DatePicker from 'components/DatePicker.vue';
+  import fecha from 'fecha';
 
   export default {
     components: {
@@ -186,6 +190,17 @@
           'month-names': ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         },
       };
+    },
+    methods: {
+      showEvent(row) {
+        return `<div>
+        <h2>${fecha.format(row,"YYYY-MM-DD")}</h2>
+        <p>内容: 99.9912</p>
+        <p>内容</p>
+        <p>内容</p>
+        </div>
+        `
+      }
     }
   };
 
@@ -199,5 +214,9 @@
 
   .box {
     width: 100%;
+  }
+  #firstDemo .datepicker__inner{
+    padding-left: 100px !important;
+    padding-right: 100px !important;
   }
 </style>

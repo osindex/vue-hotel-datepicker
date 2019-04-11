@@ -62,10 +62,7 @@ export default {
       default: true,
       type: Boolean
     },
-    tooltipMessage: {
-      default: null,
-      type: String
-    },
+    tooltipMessage: [String, Function],
     currentDateStyle:{
       required: true,
     }
@@ -91,10 +88,14 @@ export default {
       return this.countDays(this.checkIn, this.hoveringDate);
     },
     tooltipMessageDisplay() {
-      return this.tooltipMessage
-      ? this.tooltipMessage
-      : `${this.nightsCount} ${this.nightsCount !== 1 ?
-              this.options.i18n['nights'] : this.options.i18n['night']}`
+      if (typeof this.tooltipMessage === 'function') {
+        return this.tooltipMessage.call(null,this.hoveringDate)
+      }else{
+        return this.tooltipMessage
+        ? this.tooltipMessage
+        : `${this.nightsCount} ${this.nightsCount !== 1 ?
+                this.options.i18n['nights'] : this.options.i18n['night']}`
+      }
     },
     showTooltip() {
       return  !this.isDisabled &&
